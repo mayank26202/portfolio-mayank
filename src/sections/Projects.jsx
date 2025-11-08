@@ -5,6 +5,7 @@ import { ExternalLink, Github, Play } from 'lucide-react';
 import smartfix from "../assets/smartfix.png";
 import heart from "../assets/heart_dieases.png";
 import tomato from "../assets/tomato.png";
+import chess from "../assets/chess.png";
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -29,6 +30,27 @@ export default function Projects() {
       ],
     },
     {
+      title: "Endgame - Chess App",
+      subtitle: "Real-Time Multiplayer Chess Game",
+      tech: "TypeScript, React, Node.js, WebSocket (ws), Chess.js",
+      image: chess,
+      live: "https://endgamechess.vercel.app/",
+      github: "https://github.com/mayank26202/chess-ws",
+      year: "2025",
+      description:
+      "A real-time multiplayer chess platform built with WebSocket communication for seamless, low-latency gameplay. Implements full chess logic, move validation, and game synchronization using Chess.js and a TypeScript-based backend. Provides a responsive UI built with React, featuring player color assignment, move history, and live match updates.",
+      tracks: [
+        "Real-time two-player chess gameplay using WebSocket connections",
+        "Full move validation and board state management handled via Chess.js",
+        "Player roles dynamically assigned as White or Black with turn tracking",
+        "Instant synchronization of moves across connected clients",
+        "Game over detection with winner announcement and replay option",
+        "Frontend developed in React + TypeScript with responsive board design",
+        "Backend powered by Node.js and ws server handling matchmaking and sessions",
+        "Deployed on Render (backend) and Vercel (frontend) for global accessibility",
+      ],
+    },
+    {
       title: "Tomato",
       subtitle: "Food Delivery System",
       tech: "MERN Stack (MongoDB, Express, React, Node.js)",
@@ -46,24 +68,7 @@ export default function Projects() {
         "Restaurant and menu management system with image uploads and categorization",
       ],
     },
-    {
-      title: "Heart Disease Predictor",
-      subtitle: "ML Prediction Model",
-      tech: "Python, Flask, NumPy, Pandas, Scikit-learn",
-      image: heart,
-      live: "https://heart-disease-prediction-ml.onrender.com/",
-      github: "https://github.com/mayank26202/heart-disease-prediction-ml",
-      year: "2024",
-      description: "An intelligent machine learning application that predicts the likelihood of heart disease based on 14 key health parameters. Utilizes a trained Random Forest model achieving 85% accuracy, with comparative analysis across multiple ML algorithms including SVM, KNN, and Logistic Regression for optimal prediction performance.",
-      tracks: [
-        "Predicts heart disease probability using 14 key health parameters and medical indicators",
-        "Trained Random Forest classifier model achieving 85% accuracy on test dataset",
-        "Comprehensive model comparison: SVM, KNN, Logistic Regression, and Decision Trees",
-        "Deployed using Flask framework with input validation and error handling",
-        "Interactive web interface for easy parameter input and instant predictions",
-        "Model evaluation metrics including accuracy, precision, recall, and F1-score visualization",
-      ],
-    },
+    { title: "Heart Disease Predictor", subtitle: "ML Prediction Model", tech: "Python, Flask, NumPy, Pandas, Scikit-learn", image: heart, live: "https://heart-disease-prediction-ml.onrender.com/", github: "https://github.com/mayank26202/heart-disease-prediction-ml", year: "2024", description: "An intelligent machine learning application that predicts the likelihood of heart disease based on 14 key health parameters. Utilizes a trained Random Forest model achieving 85% accuracy, with comparative analysis across multiple ML algorithms including SVM, KNN, and Logistic Regression for optimal prediction performance.", tracks: ["Predicts heart disease probability using 14 key health parameters and medical indicators", "Trained Random Forest classifier model achieving 85% accuracy on test dataset", "Comprehensive model comparison: SVM, KNN, Logistic Regression, and Decision Trees", "Deployed using Flask framework with input validation and error handling", "Interactive web interface for easy parameter input and instant predictions", "Model evaluation metrics including accuracy, precision, recall, and F1-score visualization",], },
   ];
 
   return (
@@ -75,7 +80,7 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-12"
         >
-          <h1 className="text-6xl font-black mb-2 bg-linear-to-r from-[#1db954] to-[#1ed760] bg-clip-text text-transparent">
+          <h1 className="text-5xl font-black mb-2 bg-linear-to-r from-[#1db954] to-[#1ed760] bg-clip-text text-transparent">
             Projects
           </h1>
           <p className="text-lg text-gray-400">My development albums</p>
@@ -97,17 +102,17 @@ export default function Projects() {
                 {/* Album Cover */}
                 <div className="relative shrink-0">
                   <div className="w-32 h-32 rounded overflow-hidden shadow-2xl">
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  
+
                   {/* Play Button Overlay */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ 
+                    animate={{
                       opacity: hoveredProject === idx ? 1 : 0,
                       scale: hoveredProject === idx ? 1 : 0.8
                     }}
@@ -147,7 +152,7 @@ export default function Projects() {
                   >
                     <ExternalLink className="w-6 h-6 text-black" />
                   </motion.a>
-                  
+
                   <motion.a
                     href={project.github}
                     target="_blank"
@@ -164,7 +169,7 @@ export default function Projects() {
               {/* Expandable Track List */}
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
-                animate={{ 
+                animate={{
                   height: hoveredProject === idx ? 'auto' : 0,
                   opacity: hoveredProject === idx ? 1 : 0
                 }}
@@ -175,7 +180,7 @@ export default function Projects() {
                   <p className="text-xs text-gray-500 mb-3 uppercase tracking-wider">Features</p>
                   <ul className="space-y-2">
                     {project.tracks.map((track, trackIdx) => (
-                      <li 
+                      <li
                         key={trackIdx}
                         className="flex items-start gap-3 text-sm text-gray-300 hover:text-white transition-colors"
                       >

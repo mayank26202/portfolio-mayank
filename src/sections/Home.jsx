@@ -61,9 +61,9 @@ export default function Home() {
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center mt-20">
-        
+
         {/* Left Side - Profile Image & Spotify Code */}
-        <motion.div 
+        <motion.div
           className="flex flex-col items-center lg:items-start space-y-8"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -76,13 +76,13 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <img 
-                src={profile_mayank} 
-                alt="Mayank" 
+              <img
+                src={profile_mayank}
+                alt="Mayank"
                 className="w-full h-full object-cover"
               />
             </motion.div>
-            
+
             {/* Animated Border Glow */}
             <motion.div
               className="absolute inset-0 rounded-2xl bg-linear-to-r from-[#1DB954] to-[#1ed760] opacity-0 group-hover:opacity-20 blur-xl -z-10"
@@ -92,7 +92,7 @@ export default function Home() {
           </div>
 
           {/* Spotify Code Scanner */}
-          <motion.div 
+          <motion.div
             className="w-80 bg-[#181818] rounded-xl p-6 border border-[#282828] shadow-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function Home() {
                 <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
               </svg>
             </div> */}
-            
+
             <div className="flex items-center justify-center">
               <img
                 src={scanner}
@@ -116,14 +116,14 @@ export default function Home() {
         </motion.div>
 
         {/* Right Side - Content */}
-        <motion.div 
-          className="space-y-8"
+        <motion.div
+          className="space-y-3"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           {/* Now Playing Badge */}
-          <motion.div 
+          <motion.div
             className="inline-flex items-center gap-2 bg-[#181818] px-4 py-2 rounded-full border border-[#282828]"
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -133,18 +133,18 @@ export default function Home() {
               animate={{ opacity: isPlaying ? [0.5, 1, 0.5] : 0.5 }}
               transition={{ duration: 1.5, repeat: isPlaying ? Infinity : 0 }}
             >
-              <motion.div 
-                className="w-1 bg-[#1DB954] rounded-full" 
+              <motion.div
+                className="w-1 bg-[#1DB954] rounded-full"
                 animate={{ height: isPlaying ? ['12px', '16px', '12px'] : '12px' }}
                 transition={{ duration: 0.6, repeat: isPlaying ? Infinity : 0, delay: 0 }}
               />
-              <motion.div 
-                className="w-1 bg-[#1DB954] rounded-full" 
+              <motion.div
+                className="w-1 bg-[#1DB954] rounded-full"
                 animate={{ height: isPlaying ? ['16px', '8px', '16px'] : '12px' }}
                 transition={{ duration: 0.6, repeat: isPlaying ? Infinity : 0, delay: 0.1 }}
               />
-              <motion.div 
-                className="w-1 bg-[#1DB954] rounded-full" 
+              <motion.div
+                className="w-1 bg-[#1DB954] rounded-full"
                 animate={{ height: isPlaying ? ['10px', '14px', '10px'] : '12px' }}
                 transition={{ duration: 0.6, repeat: isPlaying ? Infinity : 0, delay: 0.2 }}
               />
@@ -194,13 +194,16 @@ export default function Home() {
 
             <motion.a
               href="/Mayank_Resume1.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Mayank_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 rounded-full border-2 border-[#1DB954] text-[#1DB954] font-bold hover:bg-[#1DB954] hover:text-black transition-all"
             >
               Download Resume
             </motion.a>
+
           </div>
         </motion.div>
       </div>
@@ -214,16 +217,16 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto px-4 py-2">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            
+
             {/* Song Info */}
             <div className="flex items-center gap-4 min-w-10">
-              <motion.div 
+              <motion.div
                 className="w-10 h-10 rounded-md overflow-hidden shadow-lg shrink-0"
                 whileHover={{ scale: 1.05 }}
               >
-                <img 
-                  src={profile_mayank} 
-                  alt="Album Cover" 
+                <img
+                  src={profile_mayank}
+                  alt="Album Cover"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -239,8 +242,8 @@ export default function Home() {
                 onClick={() => setIsLiked(!isLiked)}
                 className="shrink-0"
               >
-                <Heart 
-                  size={20} 
+                <Heart
+                  size={20}
                   className={`transition-colors ${isLiked ? 'text-[#1DB954] fill-[#1DB954]' : 'text-gray-400 hover:text-white'}`}
                 />
               </motion.button>
@@ -289,7 +292,7 @@ export default function Home() {
                 <span className="text-xs text-gray-400 min-w-10 text-right">
                   {formatTime(currentTime)}
                 </span>
-                <div 
+                <div
                   className="flex-1 h-1 bg-gray-700 rounded-full overflow-hidden cursor-pointer group relative"
                   onClick={handleProgressClick}
                 >
@@ -315,7 +318,7 @@ export default function Home() {
               >
                 <Volume2 size={20} />
               </motion.button>
-              
+
               <div className="w-24 h-1 bg-gray-700 rounded-full overflow-hidden cursor-pointer group">
                 <div className="w-3/4 h-full bg-white relative">
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition" />
