@@ -193,9 +193,7 @@ export default function Home() {
             </motion.a>
 
             <motion.a
-              href="/Mayank_Resume1.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`${import.meta.env.BASE_URL}Mayank_Resume1.pdf`}
               download="Mayank_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -203,6 +201,7 @@ export default function Home() {
             >
               Download Resume
             </motion.a>
+
 
           </div>
         </motion.div>

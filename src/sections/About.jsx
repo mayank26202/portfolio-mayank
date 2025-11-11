@@ -59,15 +59,10 @@ export default function About() {
   ];
 
   return (
-    <motion.section
+    <section
       id="about"
       className="relative min-h-screen bg-[#121212] text-white py-24 px-6 scroll-mt-20"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
     >
-
-
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-10 w-96 h-96 bg-[#1DB954]/5 rounded-full blur-[100px]" />
@@ -76,15 +71,10 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section - Spotify Playlist Style */}
-        <motion.div
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="flex flex-col md:flex-row items-center gap-8 mb-20"
-        >
+        <div className="flex flex-col md:flex-row items-center gap-8 mb-20">
           {/* Album Cover Style */}
           <motion.div
-            className="w-44 h-44 bg-linear-to-br from-[#1DB954] via-[#1ed760] to-[#15803d] rounded-2xl shadow-2xl flex items-center justify-center relative"
+            className="w-44 h-44 bg-gradient-to-br from-[#1DB954] via-[#1ed760] to-[#15803d] rounded-2xl shadow-2xl flex items-center justify-center relative"
             whileHover={{ scale: 1.02 }}
           >
             <div className="absolute inset-0 bg-black/20" />
@@ -117,14 +107,14 @@ export default function About() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Spotify-style "Liked Songs" Header */}
         <div className="flex items-center gap-4 mb-8">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-16 h-16 rounded-full bg-linear-to-br from-[#1DB954] to-[#1ed760] flex items-center justify-center shadow-lg"
+            className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1DB954] to-[#1ed760] flex items-center justify-center shadow-lg"
           >
             <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
@@ -141,9 +131,6 @@ export default function About() {
           {timeline.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
               className="group relative bg-transparent hover:bg-[#1a1a1a] rounded-lg p-4 transition-all duration-300 cursor-pointer"
             >
@@ -154,17 +141,13 @@ export default function About() {
                     <span className="text-gray-400 group-hover:hidden text-lg font-semibold">
                       {index + 1}
                     </span>
-                    <motion.div
-                      className="hidden group-hover:block"
-                      initial={{ scale: 0 }}
-                      whileHover={{ scale: 1 }}
-                    >
+                    <div className="hidden group-hover:block">
                       {item.type === "work" ? (
                         <Briefcase size={24} className="text-[#1DB954]" />
                       ) : (
                         <GraduationCap size={24} className="text-[#1DB954]" />
                       )}
-                    </motion.div>
+                    </div>
                   </div>
                 </div>
 
@@ -211,27 +194,16 @@ export default function About() {
                     </div>
                   </div>
 
-                  {/* Description - Expandable */}
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    whileInView={{ height: "auto", opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className=""
-                  >
+                  {/* Description */}
+                  <div>
                     <ul className="space-y-2 text-gray-400 text-sm pl-4 border-l-2 border-[#1DB954]/30">
                       {item.description.map((desc, i) => (
-                        <motion.li
-                          key={i}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.1 }}
-                          className="leading-relaxed"
-                        >
+                        <li key={i} className="leading-relaxed">
                           {desc}
-                        </motion.li>
+                        </li>
                       ))}
                     </ul>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
 
@@ -247,12 +219,7 @@ export default function About() {
         </div>
 
         {/* Bottom Stats - Spotify Style */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { label: "Years Experience", value: "1+", icon: "💼" },
             { label: "Projects Built", value: "10+", icon: "🚀" },
@@ -269,8 +236,8 @@ export default function About() {
               <div className="text-sm text-gray-400">{stat.label}</div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
